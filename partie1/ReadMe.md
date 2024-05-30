@@ -1,10 +1,11 @@
-# Partie 1 : Interfaces visuelles
 
-> NB : A faire individuellement. Dans le dosser partie_1/[classe], créez
+## Partie 1 : Interfaces visuelles
+
+> NB : A faire individuellement. Dans le dossier [partie_1/\[ma_classe\]](https://github.com/bienvenuelisis/examens_cc_dev_mobile_ios_cdp/tree/main/partie1), créez
 > un dossier portant votre nom de famille au complet, et mettez votre
-> projet a l'intérieur de ce dossier.
+> projet a l'intérieur de ce dossier (celui portant votre nom).
 
-1. Créer un projet Flutter. Dans ce projet, adopter dans votre dossier lib, l'organisation suivante :
+1. Dans votre projet Flutter, adopter dans le dossier lib, l'organisation suivante :
 
 > lib
 > ├──-core

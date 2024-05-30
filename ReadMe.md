@@ -1,6 +1,7 @@
+
 # Contrôle Continue & Examen : Développement mobile - Salle A, B.
 
-*Description : Le but de ce contrôle est de tester vos connaissances pratiques en Flutter. Il est composé de trois parties. Les deux premières parties sont à faire de manière individuelle, en dehors des heures de cours, et la dernière partie d'une durée de 3 heures 30 minutes sera complétée en classe.*
+*Description : Le but de ce contrôle est de tester vos connaissances pratiques en Flutter. Il est composé de trois parties. La première partie est à faire de manière individuelle, la deuxième partie en groupe, en dehors des heures de cours, et la dernière partie d'une durée de 3 heures 30 minutes sera complétée en classe.*
 
 > NB : Ces projets serviront de notes pour le contrôle continue du cours
 > de Développement Mobile iOS Hybride mais également pour les examens de
@@ -8,15 +9,15 @@
 
 > Si deux ou plusieurs projets présentent des similarités faisaient état d'un plagiat ou d'un copier-coller, les notes associées a ces projets, indistinctement seront  nulles.
 
-> Faites un fork du répertoire du projet sur votre compte GitHub. Après finalisation du projet, soumettez une *pull request* contenant le travail effectué. Les projets ou modifications soumis après la date limite ne seront pas pris en compte.
+> Faites un fork du répertoire du [projet](https://github.com/bienvenuelisis/examens_cc_dev_mobile_ios_cdp) sur votre compte GitHub. Après finalisation du projet, soumettez une *pull request* contenant le travail effectué seul ou en groupe (pour les groupes, une seule personne s'en chargera au nom des autres). Les projets ou modifications soumis après la date limite (Jeudi, 06 Juin 2024, 08H00) ne seront pas pris en compte.
 
 ## Partie 1 : Interfaces visuelles
 
-> NB : A faire individuellement. Dans le dosser partie_1/[classe], créez
+> NB : A faire individuellement. Dans le dossier [partie_1/\[ma_classe\]](https://github.com/bienvenuelisis/examens_cc_dev_mobile_ios_cdp/tree/main/partie1), créez
 > un dossier portant votre nom de famille au complet, et mettez votre
-> projet a l'intérieur de ce dossier.
+> projet a l'intérieur de ce dossier (celui portant votre nom).
 
-1. Créer un projet Flutter. Dans ce projet, adopter dans votre dossier lib, l'organisation suivante :
+1. Dans votre projet Flutter, adopter dans le dossier lib, l'organisation suivante :
 
 > lib
 > ├──-core
@@ -41,11 +42,11 @@ Vous pourrez vous inspirer, de l'architecture du répertoire *android* du projet
 > NB : A faire en groupe de deux personnes. Pour les classes impaires,
 > un groupe unique de 3 personnes sera toléré. Respecter au maximum les
 > consignes données en classe, concernant la formation des groupes de
-> travail. Dans le dossier partie_1/[classe], créez un dossier portant
-> le nom des membres du groupe, séparés par le caractère underscore (_),
-> et mettez votre projet a l'intérieur de ce dossier.
+> travail. Dans le dossier [partie_2/\[ma_classe\]](https://github.com/bienvenuelisis/examens_cc_dev_mobile_ios_cdp/tree/main/partie2), créez un dossier portant
+> le nom des membres du groupe, séparés par le caractère underscore (**ABALO_AFI**),
+> et mettez votre projet a l'intérieur de ce dossier (celui portant le nom des membres du groupe).
 
-Le ministère de la sécurité intérieure vous sollicite en tant que consultant en développement mobile pour créer une application permettant aux citoyens de valider leur identité et d'y associer un numéro de téléphone.
+Description : Le ministère de la sécurité intérieure vous sollicite en tant que consultant en développement mobile pour créer une application permettant aux citoyens de valider leur identité et d'y associer un numéro de téléphone.
 
 L'enjeu est simple :
 
@@ -53,3 +54,11 @@ L'enjeu est simple :
 * Un message lui est envoyé contenant le résumé sommaire des informations soumis et un code de confirmation. Il entre ce code de confirmation et ses informations sont stockés en local sur son appareil.
 * Au prochain lancement, il consulte sur une page ses informations, et peut les modifier. La modification est également soumise a la vérification avec un code envoyé par SMS.
 * Un bouton lui permet de synchroniser les informations en local sur l'appareil avec le service du ministère de la sécurité.
+
+Créer une application Flutter permettant, d'apporter une solution à ce challenge.
+
+## Partie 3 :
+
+Les instructions seront données et mis au jour au moment venu.
+
+Bonne chance.
