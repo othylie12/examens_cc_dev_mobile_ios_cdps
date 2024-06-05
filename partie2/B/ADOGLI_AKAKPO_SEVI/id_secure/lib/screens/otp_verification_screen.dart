@@ -9,7 +9,7 @@ import '../providers/user_provider.dart';
 
 class VerifyCodePage extends StatefulWidget {
   final String verificationId;
-  final String phoneNumber ;
+  final String phoneNumber;
 
   VerifyCodePage({
     required this.verificationId,
@@ -21,7 +21,8 @@ class VerifyCodePage extends StatefulWidget {
 }
 
 class _VerifyCodePageState extends State<VerifyCodePage> {
-  final List<TextEditingController> _otpControllers = List.generate(6, (index) => TextEditingController());
+  final List<TextEditingController> _otpControllers =
+      List.generate(6, (index) => TextEditingController());
   bool _verifying = false;
 
   Future<void> verifyCode() async {
@@ -30,23 +31,23 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
     });
 
     try {
-      final otpCode = _otpControllers.map((controller) => controller.text).join();
+      final otpCode =
+          _otpControllers.map((controller) => controller.text).join();
       final credential = PhoneAuthProvider.credential(
         verificationId: widget.verificationId,
         smsCode: otpCode,
       );
       await FirebaseAuth.instance.signInWithCredential(credential);
       await saveUserDataLocally(context);
-      UserProvider userProvider = Provider.of<UserProvider>(
-          context, listen: false);
+      UserProvider userProvider =
+          Provider.of<UserProvider>(context, listen: false);
       userProvider.saveUserData();
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
           builder: (context) => HomePage(),
-
         ),
-            (route) => false,
+        (route) => false,
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -71,7 +72,9 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
           padding: EdgeInsets.symmetric(vertical: 24, horizontal: 32),
           child: Column(
             children: [
-              SizedBox(height: 18,),
+              SizedBox(
+                height: 18,
+              ),
               Container(
                 width: 200,
                 height: 200,
@@ -79,9 +82,13 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                   color: Colors.deepPurple.shade50,
                   shape: BoxShape.circle,
                 ),
-                child: Image.asset('assets/image1.png',),
+                child: Image.asset(
+                  'assets/image1.png',
+                ),
               ),
-              SizedBox(height: 24,),
+              SizedBox(
+                height: 24,
+              ),
               Text(
                 'Verification',
                 style: TextStyle(
@@ -98,7 +105,8 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                   color: Colors.black38,
-                ),textAlign: TextAlign.center,
+                ),
+                textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 28,
@@ -120,33 +128,29 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                       child: _verifying
                           ? CircularProgressIndicator()
                           : ElevatedButton(
-                        onPressed: (){
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(
-                                'Verification en cours... !')),
-                          );
-                          verifyCode();
-                        },
-                        style: ButtonStyle(
-                          foregroundColor:
-                          WidgetStateProperty.all<Color>(Colors.white),
-                          backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.purple),
-                          shape: WidgetStateProperty.all<
-                              RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24.0),
+                              onPressed: () {
+                                verifyCode();
+                              },
+                              style: ButtonStyle(
+                                foregroundColor: WidgetStateProperty.all<Color>(
+                                    Colors.white),
+                                backgroundColor: WidgetStateProperty.all<Color>(
+                                    Colors.purple),
+                                shape: WidgetStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(14.0),
+                                child: Text(
+                                  'Verifier',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(14.0),
-                          child: Text(
-                            'Verifier',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -154,7 +158,6 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
               SizedBox(
                 height: 18,
               ),
-
             ],
           ),
         ),
