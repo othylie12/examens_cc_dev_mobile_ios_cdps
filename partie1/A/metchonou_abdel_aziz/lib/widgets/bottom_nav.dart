@@ -30,7 +30,7 @@ class BottomNav extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(Icons.calendar_today_outlined,
-                    size: 40,
+                    size: 30,
                     color: Color(0xfff6b5a9)
                 ),
                 onPressed: () {
