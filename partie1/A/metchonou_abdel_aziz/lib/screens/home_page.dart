@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(15),
           children: [
             const SizedBox(height: 20),
             Column(
