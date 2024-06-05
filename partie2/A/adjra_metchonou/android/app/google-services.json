@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "347331989985",
+    "project_id": "phone-auth-d39ad",
+    "storage_bucket": "phone-auth-d39ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347331989985:android:9105b88fed72fc635b82a0",
+        "android_client_info": {
+          "package_name": "com.example.adjra_metchonou"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKmCP2FCZD0El9XgIC-TJ7ODhagZG73c8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
