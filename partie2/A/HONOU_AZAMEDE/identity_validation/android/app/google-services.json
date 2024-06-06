@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "758398808621",
+    "project_id": "identity-validation-df03a",
+    "storage_bucket": "identity-validation-df03a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758398808621:android:715a5374b2b70eeec3bea4",
+        "android_client_info": {
+          "package_name": "com.example.identity_validation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfRZNqwfqTP9oaHDtLSjoz3Kh2cgsZ4p0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
