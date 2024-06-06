@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        // Ajoutez ce référentiel si vous utilisez Firebase
+        google()
+    }
+    dependencies {
+        // Assurez-vous d'ajouter la dernière version du plugin Google Services
+        classpath 'com.google.gms:google-services:4.3.10'
+    }
+}
+
+allprojects {
+    // Assurez-vous que le plugin Google Services est appliqué à tous les projets
+    apply plugin: 'com.google.gms.google-services'
+    
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services' 
+
+android {
+    
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    
+}

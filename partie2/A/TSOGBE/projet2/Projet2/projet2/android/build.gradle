@@ -1,0 +1,61 @@
+class User {
+  final String _phoneNumber;
+  final String _identity;
+  final String _education;
+  final String _employment;
+  final String _maritalStatus;
+
+  User({
+    required String phoneNumber,
+    required String identity,
+    required String education,
+    required String employment,
+    required String maritalStatus,
+  })  : _phoneNumber = _validatePhoneNumber(phoneNumber),
+        _identity = identity,
+        _education = education,
+        _employment = employment,
+        _maritalStatus = maritalStatus;
+
+  static String _validatePhoneNumber(String phoneNumber) {
+    // Basic validation for phone number (just as an example, could be more complex)
+    if (phoneNumber.isEmpty) {
+      throw ArgumentError('Phone number cannot be empty');
+    }
+    return phoneNumber;
+  }
+
+  String get phoneNumber => _phoneNumber;
+  String get identity => _identity;
+  String get education => _education;
+  String get employment => _employment;
+  String get maritalStatus => _maritalStatus;
+
+  Map<String, String> toMap() {
+    return {
+      'phoneNumber': _phoneNumber,
+      'identity': _identity,
+      'education': _education,
+      'employment': _employment,
+      'maritalStatus': _maritalStatus,
+    };
+  }
+
+  factory User.fromMap(Map<String, dynamic> map) {
+    return User(
+      phoneNumber: map['phoneNumber'] ?? '',
+      identity: map['identity'] ?? '',
+      education: map['education'] ?? '',
+      employment: map['employment'] ?? '',
+      maritalStatus: map['maritalStatus'] ?? '',
+    );
+  }
+
+  String toJson() {
+    return jsonEncode(toMap());
+  }
+
+  factory User.fromJson(String source) {
+    return User.fromMap(jsonDecode(source));
+  }
+}
