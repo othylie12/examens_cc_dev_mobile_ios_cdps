@@ -1,0 +1,369 @@
+import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:flutter_app/screens/feature1_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: ' insta',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: SplashScreen(),
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/instagram.png',
+              width: 100,
+              height: 100,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Bienvenue sur mon insta',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  void _login(BuildContext context) {
+    final email = _emailController.text;
+    final password = _passwordController.text;
+
+    if (email.isNotEmpty && password.isNotEmpty) {
+      // Redirection vers la page d'accueil
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MessagingHomePage()),
+      );
+    } else {
+      // Affichage d'un message d'erreur
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Erreur'),
+          content: Text('Veuillez remplir tous les champs'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 228, 133, 133),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            elevation: 10,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Connexion',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(height: 20),
+                  TextField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Mot de passe',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () => _login(
+                        context), // Utilisez _login avec le context actuel
+                    child: Text('Se Connecter'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+}
+
+class MessagingHomePage extends StatefulWidget {
+  @override
+  _MessagingHomePageState createState() => _MessagingHomePageState();
+}
+
+class _MessagingHomePageState extends State<MessagingHomePage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('insta❤'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Rechercher',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 100,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                _buildAvatar('assets/avatar2.png', 'marc', false),
+                _buildAvatar('assets/avatar2.png', 'luc', true),
+                _buildAvatar('assets/avatar2.png', 'jean', false),
+                _buildAvatar('assets/avatar2.png', 'maman', true),
+                _buildAvatar('assets/avatar2.png', 'ophelia', false),
+                _buildAvatar('assets/avatar2.png', 'tom', true),
+                _buildAvatar('assets/avatar2.png', 'papa', true),
+              ],
+            ),
+          ),
+          Divider(),
+          Expanded(
+            child: ListView(
+              children: [
+                _buildListItem('assets/avatar1.png', 'luc',
+                    'En ligne il y a 27 min', true),
+                _buildListItem(
+                    'assets/image1.jpg', 'marc', 'merci · 1 sem', true),
+                _buildListItem(
+                    'assets/avatar2.jpg', 'maman', 'Oui · 4 sem', true),
+                _buildListItem('assets/avatar3.jpeg', 'bruno❤',
+                    'En ligne il y a 10 min', true),
+                _buildListItem('assets/avatar4.jpeg', 'armel❤',
+                    'En ligne il y a 7 min', true),
+                _buildListItem(
+                    'assets/avatar5.jpeg', 'ophelie❤', 'bonjour · 1 min', true),
+                _buildListItem('assets/avatar6.jpeg', 'joseph❤',
+                    'je te reviens · 4 j', true),
+                _buildListItem(
+                    'assets/avatar7.jpeg', 'fortune❤', 'En ligne', true),
+                _buildListItem(
+                    'assets/avatar8.jpeg', 'jenny❤', 'En ligne', true),
+                _buildListItem('assets/avatar2.jpg', 'daniel❤',
+                    'bonne nuit · 1 sem', true),
+                _buildListItem('assets/avatar9.jpeg', 'yann❤',
+                    'En ligne il y a 5 min', true),
+                _buildListItem(
+                    'assets/avatar2.jpg', 'david❤', 'En ligne', true),
+                _buildListItem('assets/avatar2.jpg', 'jennifer❤',
+                    'bonne route · 3 j', true),
+                _buildListItem(
+                    'assets/avatar2.jpg', 'ridouane❤', 'En ligne', true),
+                _buildListItem('assets/avatar2.jpg', 'tyson❤',
+                    'En ligne il y a 9 min', true),
+                _buildListItem(
+                    'assets/avatar2.jpeg', 'reine❤', 'En ligne', true),
+                _buildListItem(
+                    'assets/avatar2.jpg', 'shella❤', 'En ligne', true),
+              ],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: _buildBottomNavigationIcon(Icons.home, Colors.transparent),
+            activeIcon: _buildBottomNavigationIcon(Icons.home, Colors.red),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildBottomNavigationIcon(Icons.search, Colors.purple),
+            activeIcon: _buildBottomNavigationIcon(Icons.search, Colors.white),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildBottomNavigationIcon(Icons.person, Colors.purple),
+            activeIcon: _buildBottomNavigationIcon(Icons.person, Colors.white),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildBottomNavigationIcon(Icons.favorite, Colors.purple),
+            activeIcon:
+                _buildBottomNavigationIcon(Icons.favorite, Colors.white),
+            label: '',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        backgroundColor: Theme.of(context).primaryColor,
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+      ),
+    );
+  }
+
+  Widget _buildAvatar(String imagePath, String name, bool isOnline) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 35,
+            backgroundImage: AssetImage(imagePath),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: CircleAvatar(
+                radius: 10,
+                backgroundColor: isOnline ? Colors.green : Colors.transparent,
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(name),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildListItem(
+      String avatarPath, String name, String subtitle, bool hasCameraIcon) {
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundImage: AssetImage(avatarPath),
+      ),
+      title: Text(name),
+      subtitle: Text(subtitle),
+      trailing: hasCameraIcon ? Icon(Icons.camera_alt) : null,
+      onTap: () {
+        // Ajoutez l'action pour l'invitation ici
+      },
+    );
+  }
+
+  Widget _buildBottomNavigationIcon(IconData iconData, Color color) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+            color: color == Colors.purple ? Colors.white : color, width: 2),
+      ),
+      child: Icon(
+        iconData,
+        color: color,
+      ),
+      padding: EdgeInsets.all(8),
+    );
+  }
+}
