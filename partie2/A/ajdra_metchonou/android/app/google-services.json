@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "347331989985",
+    "project_id": "phone-auth-d39ad",
+    "storage_bucket": "phone-auth-d39ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347331989985:android:6d7d2230e9da3c105b82a0",
+        "android_client_info": {
+          "package_name": "com.example.ajdra_metchonou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347331989985-q4591cehnfdo2i4vco5ruj1jco6ote00.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ajdra_metchonou",
+            "certificate_hash": "c6f92b28dac00957e0ce807bca04e9565f4b2963"
+          }
+        },
+        {
+          "client_id": "347331989985-2jbj8ilikjfcqqro10hf952572ufigg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKmCP2FCZD0El9XgIC-TJ7ODhagZG73c8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347331989985-2jbj8ilikjfcqqro10hf952572ufigg8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347331989985-semn6srbbbm48qfcbk7p0o0h5p2slb66.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ajdraMetchonou"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

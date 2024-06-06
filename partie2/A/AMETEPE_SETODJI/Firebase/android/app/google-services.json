@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "806198337149",
+    "project_id": "projet-partie2",
+    "storage_bucket": "projet-partie2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806198337149:android:7e033d0d4b12da75aadb14",
+        "android_client_info": {
+          "package_name": "com.example.partie2_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC31n3TaAA398695DGUsS-tMhianY7nQjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
