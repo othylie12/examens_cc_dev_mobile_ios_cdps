@@ -2,7 +2,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test/providers/user_provider.dart';
 
-
 Future<void> saveUserDataLocally(context) async {
   final userProvider = Provider.of<UserProvider>(context, listen: false);
 
@@ -17,4 +16,3 @@ Future<void> saveUserDataLocally(context) async {
   await prefs.setString('maritalStatus', userProvider.maritalStatus);
   await prefs.setString('birthdate', userProvider.birthdate.toString());
 }
-

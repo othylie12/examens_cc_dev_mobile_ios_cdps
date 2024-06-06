@@ -6,14 +6,11 @@ Future<void> sendSMSCode(BuildContext context, String phoneNumber) async {
   try {
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: phoneNumber,
-      verificationCompleted: (PhoneAuthCredential credential) {
-
-      },
+      verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erreur lors de l\'envoi du code SMS : ${e.message}'
-            ),
+            content: Text('Erreur lors de l\'envoi du code SMS : ${e.message}'),
           ),
         );
       },
@@ -22,15 +19,13 @@ Future<void> sendSMSCode(BuildContext context, String phoneNumber) async {
           context,
           MaterialPageRoute(
             builder: (context) => VerifyCodePage(
-                verificationId: verificationId,
-                phoneNumber: phoneNumber,
-              ),
+              verificationId: verificationId,
+              phoneNumber: phoneNumber,
+            ),
           ),
         );
       },
-      codeAutoRetrievalTimeout: (String verificationId) {
-
-      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
       timeout: Duration(seconds: 60),
     );
   } catch (e) {

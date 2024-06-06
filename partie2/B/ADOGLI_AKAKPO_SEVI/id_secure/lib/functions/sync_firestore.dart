@@ -4,9 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test/providers/user_provider.dart';
 import 'package:test/variables/form_variables.dart';
 
-Future<void> syncWithFirestore(UserProvider userProvider,context) async {
-  final userRef = FirebaseFirestore.instance.collection('users').doc(
-      userProvider.phoneNumber);
+Future<void> syncWithFirestore(UserProvider userProvider, context) async {
+  final userRef = FirebaseFirestore.instance
+      .collection('users')
+      .doc(userProvider.phoneNumber);
   try {
     final userData = await userRef.get();
     if (userData.exists) {
@@ -19,15 +20,13 @@ Future<void> syncWithFirestore(UserProvider userProvider,context) async {
         'occupation': userProvider.occupation,
         'gender': userProvider.sexe,
         'maritalStatus': userProvider.maritalStatus,
-        'birthdate': '${userProvider.birthdate?.day}/${userProvider.birthdate
-            ?.month}/${userProvider.birthdate?.year}',
-      }
-      );
+        'birthdate':
+            '${userProvider.birthdate.day}/${userProvider.birthdate.month}/${userProvider.birthdate.year}',
+      });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Données mises à jour dans notre base !')),
       );
-    }
-    else {
+    } else {
       await userRef.set({
         'phoneNumber': userProvider.phoneNumber,
         'firstName': userProvider.firstName,
@@ -37,8 +36,8 @@ Future<void> syncWithFirestore(UserProvider userProvider,context) async {
         'occupation': userProvider.occupation,
         'gender': userProvider.sexe,
         'maritalStatus': userProvider.maritalStatus,
-        'birthdate': '${userProvider.birthdate?.day}/${userProvider.birthdate
-            ?.month}/${userProvider.birthdate?.year}',
+        'birthdate':
+            '${userProvider.birthdate.day}/${userProvider.birthdate.month}/${userProvider.birthdate.year}',
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Données enregistrer dans notre base !')),
@@ -50,4 +49,3 @@ Future<void> syncWithFirestore(UserProvider userProvider,context) async {
     );
   }
 }
-

@@ -8,7 +8,8 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -59,7 +60,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   children: [
                     CircleAvatar(
                       radius: 80,
-                      backgroundImage: AssetImage('assets/electronic-identification.png'),
+                      backgroundImage:
+                          AssetImage('assets/electronic-identification.png'),
                     ),
                     SizedBox(height: 20),
                     Row(
@@ -67,10 +69,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                       children: [
                         for (int i = 0; i < 'Welcome'.length; i++)
                           FadeTransition(
-                            opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
+                            opacity:
+                                Tween<double>(begin: 0.0, end: 1.0).animate(
                               CurvedAnimation(
                                 parent: _controller,
-                                curve: Interval((i + 1) / 8, 1.0, curve: Curves.easeInOut),
+                                curve: Interval((i + 1) / 8, 1.0,
+                                    curve: Curves.easeInOut),
                               ),
                             ),
                             child: Text(
@@ -94,5 +98,3 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     );
   }
 }
-
-

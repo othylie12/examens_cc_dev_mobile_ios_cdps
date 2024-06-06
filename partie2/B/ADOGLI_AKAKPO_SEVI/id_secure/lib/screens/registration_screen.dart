@@ -8,7 +8,6 @@ import 'package:test/variables/form_variables.dart';
 import 'package:test/widgets/forms_widgets.dart';
 import 'package:test/functions/form_methods.dart';
 
-
 class RegistrationScreen extends StatefulWidget {
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
@@ -23,10 +22,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ID Secure - Enregistrement', style: GoogleFonts.roboto(
-            color: Colors.deepPurple,
-            fontSize: 23,
-            fontWeight: FontWeight.bold)),
+        title: Text('ID Secure - Enregistrement',
+            style: GoogleFonts.roboto(
+                color: Colors.deepPurple,
+                fontSize: 23,
+                fontWeight: FontWeight.bold)),
         actions: [
           IconButton(
             icon: Icon(Icons.info),
@@ -36,10 +36,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 context: context,
                 builder: (context) {
                   return AlertDialog(
-                    title: Text('Informations', style: GoogleFonts.roboto(
-                        color: Colors.deepPurple,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
+                    title: Text('Informations',
+                        style: GoogleFonts.roboto(
+                            color: Colors.deepPurple,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)),
                     content: Text(
                         'Cette application vous permet de vous identifier et vérifier votre identité.'),
                     actions: [
@@ -69,7 +70,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 icon: Icons.phone,
                 keyboardType: TextInputType.phone,
                 validator: (value) {
-                  if (value == null || value.isEmpty ||
+                  if (value == null ||
+                      value.isEmpty ||
                       !isValidPhoneNumber(value)) {
                     return 'Veuillez entrer un numéro de téléphone valide.';
                   }
@@ -192,7 +194,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   sexe = value!;
                 },
               ),
-
               buildDropdownButtonFormField(
                 label: 'Statut matrimonial',
                 items: ['Célibataire', 'Marié(e)', 'Divorcé(e)', 'Veuf(ve)'],
@@ -235,8 +236,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) =>
-                              TermsAndConditionsScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => TermsAndConditionsScreen()),
                         );
                       },
                       child: Text(
@@ -256,51 +257,53 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ElevatedButton(
                 onPressed: _acceptTerms
                     ? () async {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    setState(() {
-                      _isRegistering = true;
-                    });
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          setState(() {
+                            _isRegistering = true;
+                          });
 
-                    UserProvider userProvider = Provider.of<UserProvider>(
-                        context, listen: false);
-                    userProvider.setUserData(
-                      phoneNumber: phoneNumber,
-                      firstName: firstName,
-                      lastName: lastName,
-                      email: email,
-                      education: education,
-                      occupation: occupation,
-                      sexe: sexe,
-                      maritalStatus: maritalStatus,
-                      birthdate: birthdate!,
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(
-                          'Un message est en cours d\'envoie... !')),
-
-                    );
-                    await sendSMSCode(context, phoneNumber).then((_) {
-                      setState(() {
-                        _isRegistering = false;
-                      });
-                    });
-                  }
-                }
+                          UserProvider userProvider =
+                              Provider.of<UserProvider>(context, listen: false);
+                          userProvider.setUserData(
+                            phoneNumber: phoneNumber,
+                            firstName: firstName,
+                            lastName: lastName,
+                            email: email,
+                            education: education,
+                            occupation: occupation,
+                            sexe: sexe,
+                            maritalStatus: maritalStatus,
+                            birthdate: birthdate!,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content: Text(
+                                    'Un message est en cours d\'envoie... !')),
+                          );
+                          await sendSMSCode(context, userProvider.phoneNumber)
+                              .then((_) {
+                            setState(() {
+                              _isRegistering = false;
+                            });
+                          });
+                        }
+                      }
                     : null,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: _acceptTerms ? Colors.deepPurple : Colors
-                      .grey,
+                  backgroundColor:
+                      _acceptTerms ? Colors.deepPurple : Colors.grey,
                 ),
                 child: _isRegistering
                     ? CircularProgressIndicator(color: Colors.white)
                     : Text(
-                  "S'enregistrer",
-                  style: GoogleFonts.roboto(color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
+                        "S'enregistrer",
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
               ),
             ],
           ),
@@ -320,10 +323,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       child: InkWell(
         onTap: () async {
           DateTime currentDate = DateTime.now();
-          DateTime earliestDate = DateTime(
-              currentDate.year - 100);
-          DateTime latestDate = DateTime(
-              currentDate.year - 18);
+          DateTime earliestDate = DateTime(currentDate.year - 100);
+          DateTime latestDate = DateTime(currentDate.year - 18);
 
           DateTime? pickedDate = await showDatePicker(
             context: context,
@@ -364,7 +365,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           child: birthdate == null
               ? Text('Année de naissance')
               : Text(
-              '${birthdate!.day}/${birthdate!.month}/${birthdate!.year}'),
+                  '${birthdate!.day}/${birthdate!.month}/${birthdate!.year}'),
         ),
       ),
     );

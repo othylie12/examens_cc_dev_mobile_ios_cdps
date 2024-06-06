@@ -10,10 +10,7 @@ import 'package:test/screens/registration_screen.dart';
 import 'package:test/variables/form_variables.dart';
 import 'package:test/widgets/forms_widgets.dart';
 
-
 class HomePage extends StatefulWidget {
-
-
   _HomePageState createState() => _HomePageState();
 }
 
@@ -32,7 +29,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
   Future<void> _saveUserDataLocally(UserProvider userProvider) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('phoneNumber', userProvider.phoneNumber);
@@ -45,7 +41,6 @@ class _HomePageState extends State<HomePage> {
     await prefs.setString('maritalStatus', userProvider.maritalStatus);
     await prefs.setString('birthdate', userProvider.birthdate.toString());
   }
-
 
   void _saveChanges(UserProvider userProvider) async {
     setState(() {
@@ -79,19 +74,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context);
-    final textTheme = Theme
-        .of(context)
-        .textTheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Informations Utilisateur', style: GoogleFonts.roboto(
-            color: Colors.deepPurple,
-            fontSize: 25,
-            fontWeight: FontWeight.bold)),
+        title: Text('Informations Utilisateur',
+            style: GoogleFonts.roboto(
+                color: Colors.deepPurple,
+                fontSize: 25,
+                fontWeight: FontWeight.bold)),
         actions: [
           IconButton(
-
             icon: Icon(Icons.sync),
             onPressed: () => syncWithFirestore(userProvider, context),
           ),
@@ -111,13 +104,10 @@ class _HomePageState extends State<HomePage> {
                   SnackBar(
                     content: Text(
                         'Vous ne pouvez pas modifier votre numéro de téléphone.'
-                            '\n Conformement à notre politique de confidentialité, '
-                            '\nVous pouvez modifier les autres informations.'
-
-                    ),
+                        '\n Conformement à notre politique de confidentialité, '
+                        '\nVous pouvez modifier les autres informations.'),
                   ),
                 );
-
               },
             ),
             _buildUserInfoCard(
@@ -173,12 +163,11 @@ class _HomePageState extends State<HomePage> {
               context: context,
               icon: Icons.calendar_today,
               label: 'Date de naissance',
-              value: '${userProvider.birthdate.day}/${userProvider.birthdate
-                  .month}/${userProvider.birthdate.year}',
+              value:
+                  '${userProvider.birthdate.day}/${userProvider.birthdate.month}/${userProvider.birthdate.year}',
               onPressed: () => _startEditing('birthdate'),
             ),
-            if (_isEditing)
-              _buildEditingForm(userProvider),
+            if (_isEditing) _buildEditingForm(userProvider),
           ],
         ),
       ),
@@ -227,8 +216,6 @@ class _HomePageState extends State<HomePage> {
       key: _formKey,
       child: Column(
         children: [
-
-
           if (_currentField == 'firstName')
             buildTextFormField(
               label: 'Prénom',
@@ -368,7 +355,8 @@ class _HomePageState extends State<HomePage> {
             buildDateFormField(
               label: 'Date de naissance',
               icon: Icons.calendar_today,
-              selectedDate: birthdate ?? userProvider.birthdate ?? DateTime.now(),
+              selectedDate:
+                  birthdate ?? userProvider.birthdate ?? DateTime.now(),
               onDateChanged: (newDate) {
                 setState(() {
                   birthdate = newDate;
@@ -376,17 +364,14 @@ class _HomePageState extends State<HomePage> {
               },
               context: context,
             ),
-
-
-
           SizedBox(height: 20),
           if (_isSaving)
             CircularProgressIndicator()
           else
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all<Color>(
-                    Colors.deepPurple),
+                backgroundColor:
+                    WidgetStateProperty.all<Color>(Colors.deepPurple),
                 foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
                 shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -397,29 +382,28 @@ class _HomePageState extends State<HomePage> {
               onPressed: _isSaving
                   ? null
                   : () {
-                UserProvider userProvider = Provider.of<UserProvider>(
-                    context, listen: false);
-                userProvider.setUserData(
-                  phoneNumber: userProvider.phoneNumber,
-                  firstName: firstName,
-                  lastName: lastName,
-                  email: email,
-                  education: education,
-                  occupation: occupation,
-                  sexe: sexe,
-                  maritalStatus: maritalStatus,
-                  birthdate: birthdate ?? userProvider.birthdate ?? DateTime.now(),
+                      UserProvider userProvider =
+                          Provider.of<UserProvider>(context, listen: false);
+                      userProvider.setUserData(
+                        phoneNumber: userProvider.phoneNumber,
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        education: education,
+                        occupation: occupation,
+                        sexe: sexe,
+                        maritalStatus: maritalStatus,
+                        birthdate: birthdate ??
+                            userProvider.birthdate ??
+                            DateTime.now(),
+                      );
 
-                );
-
-                _saveChanges(userProvider);
-              },
-              child: _isSaving
-                  ? CircularProgressIndicator()
-                  : Text('Sauvegarder'),
+                      _saveChanges(userProvider);
+                    },
+              child:
+                  _isSaving ? CircularProgressIndicator() : Text('Sauvegarder'),
             ),
         ],
-
       ),
     );
   }
@@ -475,9 +459,9 @@ Widget buildDateFormField({
           lastDate: DateTime.now(),
         );
         if (picked != null && picked != userProvider.birthdate) {
-
           DateTime currentDate = DateTime.now();
-          DateTime eighteenYearsAgo = DateTime(currentDate.year - 18, currentDate.month, currentDate.day);
+          DateTime eighteenYearsAgo = DateTime(
+              currentDate.year - 18, currentDate.month, currentDate.day);
           if (picked.isBefore(eighteenYearsAgo)) {
             onDateChanged(picked);
           } else {
