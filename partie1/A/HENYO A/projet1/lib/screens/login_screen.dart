@@ -207,7 +207,7 @@ class LoginOptions extends StatelessWidget {
       height: size.height * 0.07,
       decoration: BoxDecoration(
         //color: const Color(0xFF2252fd),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(30),
         border: Border.all(
           color: const Color(0xffe3e0e0),
         ),

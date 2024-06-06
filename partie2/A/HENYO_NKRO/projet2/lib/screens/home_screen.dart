@@ -68,25 +68,37 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Phone: $phone'),
-            Text('Name: $name'),
-            Text('Education: $education'),
-            Text('Job: $job'),
-            Text('Marital Status: $maritalStatus'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
-              },
-              child: const Text('Edit Information'),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/background.jfif',
+              fit: BoxFit.cover,
             ),
-          ],
-        ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text('Phone: $phone'),
+                  Text('Name: $name'),
+                  Text('Education: $education'),
+                  Text('Job: $job'),
+                  Text('Marital Status: $maritalStatus'),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/');
+                    },
+                    child: const Text('Edit Information'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
