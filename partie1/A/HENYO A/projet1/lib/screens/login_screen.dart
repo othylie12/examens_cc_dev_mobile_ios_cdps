@@ -10,10 +10,11 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 116, 187, 249),
+      backgroundColor: const Color.fromARGB(255, 116, 187, 249),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 251, 252, 253),
+        backgroundColor: const Color.fromARGB(255, 251, 252, 253),
         title: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +117,7 @@ class LoginPage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    backgroundColor: Color.fromARGB(255, 210, 218, 248),
+                    backgroundColor: const Color.fromARGB(255, 210, 218, 248),
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
@@ -136,7 +137,101 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: size.height * 0.04,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: size.width * 0.4,
+                child: const Divider(
+                  color: Colors.grey,
+                  height: 2,
+                ),
+              ),
+              const Text(
+                "  or  ",
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(
+                width: size.width * 0.4,
+                child: const Divider(
+                  color: Colors.grey,
+                  height: 2,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: size.height * 0.04,
+          ),
+          LoginOptions(
+            size: size,
+            loginOption: "Continue with Google",
+            image: "assets/icons/google.png",
+          ),
+          SizedBox(
+            height: size.height * 0.04,
+          ),
+          LoginOptions(
+            size: size,
+            loginOption: "Continue with Facebook",
+            image: "assets/icons/facebook.png",
+          ),
         ]),
+      ),
+    );
+  }
+}
+
+class LoginOptions extends StatelessWidget {
+  const LoginOptions({
+    super.key,
+    required this.size,
+    required this.loginOption,
+    required this.image,
+  });
+
+  final Size size;
+  final String loginOption;
+  final String image;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size.width,
+      height: size.height * 0.07,
+      decoration: BoxDecoration(
+        //color: const Color(0xFF2252fd),
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(
+          color: const Color(0xffe3e0e0),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Image.asset(
+              image,
+              fit: BoxFit.contain,
+              height: 32,
+            ),
+          ),
+          Text(
+            loginOption,
+            style: const TextStyle(
+              color: Colors.black54,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       ),
     );
   }
