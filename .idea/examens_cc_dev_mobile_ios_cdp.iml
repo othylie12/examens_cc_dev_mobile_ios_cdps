@@ -3,6 +3,12 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application_1/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application_1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application_1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application/build" />
       <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI YAO AARON KERRY SEYRAM/nutrition_advice_app/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI YAO AARON KERRY SEYRAM/nutrition_advice_app/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI YAO AARON KERRY SEYRAM/nutrition_advice_app/build" />
