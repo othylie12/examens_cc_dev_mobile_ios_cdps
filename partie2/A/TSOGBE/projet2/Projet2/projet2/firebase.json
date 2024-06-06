@@ -1,0 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
+
+class DefaultFirebaseOptions {
+  static FirebaseOptions get currentPlatform {
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      return const FirebaseOptions(
+        apiKey: 'YOUR_ANDROID_API_KEY',
+        appId: '1:806198337149:android:7e033d0d4b12da75aadb14',
+        messagingSenderId: '819625673387',
+        projectId: 'bruno-730a5',
+      );
+    } else {
+    }
+  }
+}
