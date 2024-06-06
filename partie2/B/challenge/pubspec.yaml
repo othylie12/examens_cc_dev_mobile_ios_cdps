@@ -1,0 +1,25 @@
+name: challenge
+description: Une application pour vérifier l'identité et le numéro de téléphone
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.1 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: 1.2.1
+  shared_preferences: ^2.0.6
+  sms_autofill: ^2.0.0
+  firebase_core: ^3.0.0
+  firebase_auth: ^5.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
