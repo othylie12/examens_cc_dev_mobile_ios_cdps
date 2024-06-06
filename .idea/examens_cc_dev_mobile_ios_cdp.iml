@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application_1/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application_1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application_1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/BAKA Essoham Exaucé Amen/flutter_application/build" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI YAO AARON KERRY SEYRAM/nutrition_advice_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI YAO AARON KERRY SEYRAM/nutrition_advice_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI YAO AARON KERRY SEYRAM/nutrition_advice_app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI_YAO_AARON_KERRY_SEYRAM/nutrition_advice_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI_YAO_AARON_KERRY_SEYRAM/nutrition_advice_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/partie1/B/ANANI_YAO_AARON_KERRY_SEYRAM/nutrition_advice_app/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
+  </component>
+</module>
