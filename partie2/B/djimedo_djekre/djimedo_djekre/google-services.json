@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "610409875253",
+    "project_id": "identifation-app",
+    "storage_bucket": "identifation-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610409875253:android:8853398faeb51269022e7c",
+        "android_client_info": {
+          "package_name": "com.example.djimedo_djekre"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcuaX1OwgXkQtPQas8ozOnuk1KlAEp23Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
