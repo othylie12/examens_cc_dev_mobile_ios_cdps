@@ -1,0 +1,508 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "metchonou_abdel_aziz",
+            "cwd": "partie1\\A\\metchonou_abdel_aziz",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "metchonou_abdel_aziz (profile mode)",
+            "cwd": "partie1\\A\\metchonou_abdel_aziz",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "metchonou_abdel_aziz (release mode)",
+            "cwd": "partie1\\A\\metchonou_abdel_aziz",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "badakoucharles",
+            "cwd": "partie1\\B\\badakoucharles",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "badakoucharles (profile mode)",
+            "cwd": "partie1\\B\\badakoucharles",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "badakoucharles (release mode)",
+            "cwd": "partie1\\B\\badakoucharles",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "demtita_allah_asra_victoire",
+            "cwd": "partie1\\B\\demtita_allah_asra_victoire",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "demtita_allah_asra_victoire (profile mode)",
+            "cwd": "partie1\\B\\demtita_allah_asra_victoire",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "demtita_allah_asra_victoire (release mode)",
+            "cwd": "partie1\\B\\demtita_allah_asra_victoire",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "abaya_shop",
+            "cwd": "partie1\\A\\ABOUDOULAI\\abaya_shop",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "abaya_shop (profile mode)",
+            "cwd": "partie1\\A\\ABOUDOULAI\\abaya_shop",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "abaya_shop (release mode)",
+            "cwd": "partie1\\A\\ABOUDOULAI\\abaya_shop",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "app_cc_kaba",
+            "cwd": "partie1\\A\\ADJRA Kokou Alexandre-le-grand\\app_cc_kaba",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app_cc_kaba (profile mode)",
+            "cwd": "partie1\\A\\ADJRA Kokou Alexandre-le-grand\\app_cc_kaba",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app_cc_kaba (release mode)",
+            "cwd": "partie1\\A\\ADJRA Kokou Alexandre-le-grand\\app_cc_kaba",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "app_projet",
+            "cwd": "partie1\\A\\AKPA_Prince\\app_projet",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app_projet (profile mode)",
+            "cwd": "partie1\\A\\AKPA_Prince\\app_projet",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app_projet (release mode)",
+            "cwd": "partie1\\A\\AKPA_Prince\\app_projet",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_entusiasts_app",
+            "cwd": "partie1\\A\\AMEDON_KOMLAVI_ASHIMA_ROLAND\\flutter_entusiasts_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_entusiasts_app (profile mode)",
+            "cwd": "partie1\\A\\AMEDON_KOMLAVI_ASHIMA_ROLAND\\flutter_entusiasts_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_entusiasts_app (release mode)",
+            "cwd": "partie1\\A\\AMEDON_KOMLAVI_ASHIMA_ROLAND\\flutter_entusiasts_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "my_apk",
+            "cwd": "partie1\\A\\AMETEPE Kwadzo Auxane Yannis\\my_apk",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "my_apk (profile mode)",
+            "cwd": "partie1\\A\\AMETEPE Kwadzo Auxane Yannis\\my_apk",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "my_apk (release mode)",
+            "cwd": "partie1\\A\\AMETEPE Kwadzo Auxane Yannis\\my_apk",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_exam_finale",
+            "cwd": "partie1\\A\\DAKITCHE\\flutter_exam_finale",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_exam_finale (profile mode)",
+            "cwd": "partie1\\A\\DAKITCHE\\flutter_exam_finale",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_exam_finale (release mode)",
+            "cwd": "partie1\\A\\DAKITCHE\\flutter_exam_finale",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "tchana",
+            "cwd": "partie1\\A\\GNUEWOTCHANA Edoh Achille\\tchana",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "tchana (profile mode)",
+            "cwd": "partie1\\A\\GNUEWOTCHANA Edoh Achille\\tchana",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "tchana (release mode)",
+            "cwd": "partie1\\A\\GNUEWOTCHANA Edoh Achille\\tchana",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "projet1",
+            "cwd": "partie1\\A\\HENYO A\\projet1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "projet1 (profile mode)",
+            "cwd": "partie1\\A\\HENYO A\\projet1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "projet1 (release mode)",
+            "cwd": "partie1\\A\\HENYO A\\projet1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "my_work",
+            "cwd": "partie1\\A\\HONOU_Carine\\my_work",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "my_work (profile mode)",
+            "cwd": "partie1\\A\\HONOU_Carine\\my_work",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "my_work (release mode)",
+            "cwd": "partie1\\A\\HONOU_Carine\\my_work",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "interfaces_visuelles",
+            "cwd": "partie1\\A\\LAWSON-DABLA\\interfaces_visuelles",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "interfaces_visuelles (profile mode)",
+            "cwd": "partie1\\A\\LAWSON-DABLA\\interfaces_visuelles",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "interfaces_visuelles (release mode)",
+            "cwd": "partie1\\A\\LAWSON-DABLA\\interfaces_visuelles",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "first_app",
+            "cwd": "partie1\\A\\PETEOU_FESAL_MAWABA_DAVID\\first_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "first_app (profile mode)",
+            "cwd": "partie1\\A\\PETEOU_FESAL_MAWABA_DAVID\\first_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "first_app (release mode)",
+            "cwd": "partie1\\A\\PETEOU_FESAL_MAWABA_DAVID\\first_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "SETODJI_SEMEHO_BENI",
+            "cwd": "partie1\\A\\SETODJI_SEMEHO_BENI\\SETODJI_SEMEHO_BENI",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "SETODJI_SEMEHO_BENI (profile mode)",
+            "cwd": "partie1\\A\\SETODJI_SEMEHO_BENI\\SETODJI_SEMEHO_BENI",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "SETODJI_SEMEHO_BENI (release mode)",
+            "cwd": "partie1\\A\\SETODJI_SEMEHO_BENI\\SETODJI_SEMEHO_BENI",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "nutrition_advice_app",
+            "cwd": "partie1\\B\\ANANI_YAO_AARON_KERRY_SEYRAM\\nutrition_advice_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "nutrition_advice_app (profile mode)",
+            "cwd": "partie1\\B\\ANANI_YAO_AARON_KERRY_SEYRAM\\nutrition_advice_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "nutrition_advice_app (release mode)",
+            "cwd": "partie1\\B\\ANANI_YAO_AARON_KERRY_SEYRAM\\nutrition_advice_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "taga",
+            "cwd": "partie1\\B\\BOUTORA-TAKPA_Essosnam_De_Dissirama\\taga",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "taga (profile mode)",
+            "cwd": "partie1\\B\\BOUTORA-TAKPA_Essosnam_De_Dissirama\\taga",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "taga (release mode)",
+            "cwd": "partie1\\B\\BOUTORA-TAKPA_Essosnam_De_Dissirama\\taga",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "myappnoe",
+            "cwd": "partie1\\B\\DJEKRE_DESSERAMA_NOE\\myappnoe",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "myappnoe (profile mode)",
+            "cwd": "partie1\\B\\DJEKRE_DESSERAMA_NOE\\myappnoe",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "myappnoe (release mode)",
+            "cwd": "partie1\\B\\DJEKRE_DESSERAMA_NOE\\myappnoe",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "tweetapp",
+            "cwd": "partie1\\B\\KOVE_Senyo_Marcel\\tweetapp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "tweetapp (profile mode)",
+            "cwd": "partie1\\B\\KOVE_Senyo_Marcel\\tweetapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "tweetapp (release mode)",
+            "cwd": "partie1\\B\\KOVE_Senyo_Marcel\\tweetapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "fasto_app",
+            "cwd": "partie1\\B\\MAGNAN_Essowabouwe_Joseph\\fasto_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "fasto_app (profile mode)",
+            "cwd": "partie1\\B\\MAGNAN_Essowabouwe_Joseph\\fasto_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "fasto_app (release mode)",
+            "cwd": "partie1\\B\\MAGNAN_Essowabouwe_Joseph\\fasto_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "ahoe",
+            "cwd": "partie1\\B\\MESSAN KOFFI EMMANUEL JUNIOR\\ahoe",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ahoe (profile mode)",
+            "cwd": "partie1\\B\\MESSAN KOFFI EMMANUEL JUNIOR\\ahoe",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ahoe (release mode)",
+            "cwd": "partie1\\B\\MESSAN KOFFI EMMANUEL JUNIOR\\ahoe",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "gamestore",
+            "cwd": "partie1\\B\\VOULE-FRITITI_Yedidia\\gamestore",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "gamestore (profile mode)",
+            "cwd": "partie1\\B\\VOULE-FRITITI_Yedidia\\gamestore",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "gamestore (release mode)",
+            "cwd": "partie1\\B\\VOULE-FRITITI_Yedidia\\gamestore",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "projet2",
+            "cwd": "partie2\\A\\HENYO_NKRO\\projet2",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "projet2 (profile mode)",
+            "cwd": "partie2\\A\\HENYO_NKRO\\projet2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "projet2 (release mode)",
+            "cwd": "partie2\\A\\HENYO_NKRO\\projet2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "identity_app",
+            "cwd": "partie2\\B\\MESSAN_TOGBEVI\\identity_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "identity_app (profile mode)",
+            "cwd": "partie2\\B\\MESSAN_TOGBEVI\\identity_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "identity_app (release mode)",
+            "cwd": "partie2\\B\\MESSAN_TOGBEVI\\identity_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "gouvernement",
+            "cwd": "partie2\\B\\VOULE-FRITITI_MAGNAN\\gouvernement",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "gouvernement (profile mode)",
+            "cwd": "partie2\\B\\VOULE-FRITITI_MAGNAN\\gouvernement",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "gouvernement (release mode)",
+            "cwd": "partie2\\B\\VOULE-FRITITI_MAGNAN\\gouvernement",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
