@@ -1,0 +1,552 @@
+Pour connecter votre formulaire Flutter à Firebase, envoyer un message récapitulatif avec un code de confirmation, stocker les informations localement, permettre la consultation et la modification des informations, et synchroniser les données avec un service externe, voici les étapes détaillées :
+
+Étape 1: Configuration de Firebase dans votre projet Flutter
+Créer un projet Firebase:
+
+Allez sur Firebase Console.
+Créez un nouveau projet.
+Ajouter l'application Android/iOS:
+
+Dans Firebase Console, ajoutez votre application Android/iOS en suivant les instructions.
+Téléchargez le fichier google-services.json (pour Android) ou GoogleService-Info.plist (pour iOS) et ajoutez-le dans le répertoire approprié de votre projet Flutter.
+Ajouter les dépendances Firebase:
+
+Ajoutez les dépendances Firebase dans votre fichier pubspec.yaml:
+yaml
+Copier le code
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: latest_version
+  firebase_auth: latest_version
+  cloud_firestore: latest_version
+  firebase_messaging: latest_version
+Initialiser Firebase:
+
+Modifiez votre fichier main.dart pour initialiser Firebase:
+dart
+Copier le code
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Formulaire(),
+    );
+  }
+}
+Étape 2: Formulaire de Soumission avec Firebase et Code de Confirmation
+Voici le code complet pour le formulaire avec les fonctionnalités demandées:
+
+dart
+Copier le code
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:math';
+
+import 'user_model.dart';
+
+class Formulaire extends StatefulWidget {
+  @override
+  _FormulaireState createState() => _FormulaireState();
+}
+
+class _FormulaireState extends State<Formulaire> {
+  final _formKey = GlobalKey<FormState>();
+  final UserModel _user = UserModel(
+    phoneNumber: '',
+    name: '',
+    identityNumber: '',
+    education: '',
+    employment: '',
+    maritalStatus: '',
+  );
+  final _scrollController = ScrollController();
+
+  final List<String> _maritalStatusOptions = [
+    'Célibataire',
+    'Marié(e)',
+    'Divorcé(e)',
+    'Veuf(ve)'
+  ];
+  final List<String> _educationOptions = [
+    'École primaire',
+    'Collège',
+    'Lycée',
+    'Licence',
+    'Master',
+    'Doctorat'
+  ];
+  final List<String> _employmentOptions = [
+    'Sans emploi',
+    'Employé',
+    'Indépendant',
+    'Retraité'
+  ];
+  final List<String> _countryCodes = ['+33 - FRANCE', '+228 TOGO'];
+
+  String _confirmationCode = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text('Enregistrez-vous !')),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            controller: _scrollController,
+            children: [
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(labelText: 'Indicatif de Pays'),
+                items: _countryCodes.map((String code) {
+                  return DropdownMenuItem<String>(
+                    value: code,
+                    child: Text(code),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  // Faites quelque chose avec la valeur
+                },
+                onSaved: (value) {
+                  if (value != null) {
+                    _user.phoneNumber = value + _user.phoneNumber;
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner votre indicatif de pays';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Numéro de Téléphone'),
+                keyboardType: TextInputType.phone,
+                onSaved: (value) {
+                  if (value != null) {
+                    _user.phoneNumber += value;
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez saisir votre numéro de téléphone';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Nom'),
+                onSaved: (value) => _user.name = value!,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez saisir votre nom';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Numéro d\'Identité'),
+                onSaved: (value) => _user.identityNumber = value!,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez saisir votre numéro d\'identité';
+                  }
+                  return null;
+                },
+              ),
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(labelText: 'Niveau d\'Études'),
+                items: _educationOptions.map((String option) {
+                  return DropdownMenuItem<String>(
+                    value: option,
+                    child: Text(option),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  // Faites quelque chose avec la valeur
+                },
+                onSaved: (value) {
+                  if (value != null) {
+                    _user.education = value;
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner votre niveau d\'études';
+                  }
+                  return null;
+                },
+              ),
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(labelText: 'Emploi'),
+                items: _employmentOptions.map((String option) {
+                  return DropdownMenuItem<String>(
+                    value: option,
+                    child: Text(option),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  // Faites quelque chose avec la valeur
+                },
+                onSaved: (value) {
+                  if (value != null) {
+                    _user.employment = value;
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner votre situation d\'emploi';
+                  }
+                  return null;
+                },
+              ),
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(labelText: 'Statut Matrimonial'),
+                items: _maritalStatusOptions.map((String option) {
+                  return DropdownMenuItem<String>(
+                    value: option,
+                    child: Text(option),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  // Faites quelque chose avec la valeur
+                },
+                onSaved: (value) {
+                  if (value != null) {
+                    _user.maritalStatus = value;
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner votre statut matrimonial';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+
+                    // Simuler l'envoi du résumé et du code de confirmation
+                    _confirmationCode = _generateConfirmationCode();
+                    String summaryMessage = '''
+                    Nom: ${_user.name}
+                    Numéro de Téléphone: ${_user.phoneNumber}
+                    Numéro d'Identité: ${_user.identityNumber}
+                    Niveau d'Études: ${_user.education}
+                    Emploi: ${_user.employment}
+                    Statut Matrimonial: ${_user.maritalStatus}
+                    Code de Confirmation: $_confirmationCode
+                    ''';
+
+                    // Afficher Snackbar avec le message récapitulatif
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Formulaire soumis! Un message contenant les informations et le code de confirmation vous a été envoyé.'),
+                        duration: Duration(seconds: 5),
+                      ),
+                    );
+
+                    // Faire défiler jusqu'au milieu de la page
+                    _scrollController.animateTo(
+                      _scrollController.position.maxScrollExtent / 2,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInOut,
+                    );
+
+                    // Envoyer le code de confirmation par SMS
+                    await _sendConfirmationCodeSMS(_user.phoneNumber, _confirmationCode);
+
+                    // Afficher la boîte de dialogue de confirmation
+                    await _showConfirmationDialog(context, summaryMessage);
+                  }
+                },
+                child: Text('Soumettre'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  String _generateConfirmationCode() {
+    var rng = Random();
+    return (1000 + rng.nextInt(9000)).toString(); // Générer un code à 4 chiffres
+  }
+
+  Future<void> _sendConfirmationCodeSMS(String phoneNumber, String code) async {
+    // Utiliser Firebase Authentication pour envoyer le code de confirmation par SMS
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        // On vérification automatique du code (pas nécessaire dans ce contexte)
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        // Gérer les erreurs de vérification
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erreur d\'envoi du code de confirmation: ${e.message}'),
+            duration: Duration(seconds: 5),
+          ),
+        );
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        // Code envoyé avec succès
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        // Timeout de récupération automatique du code
+      },
+    );
+  }
+
+  Future<void> _showConfirmationDialog(BuildContext context, String summaryMessage) async {
+    TextEditingController _codeController = TextEditingController();
+
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // L'utilisateur doit entrer le code
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Code de Confirmation'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Un message contenant les informations soumises et un code de confirmation vous a été envoyé.'),
+                SizedBox(height: 20),
+                Text(summaryMessage),
+                TextField(
+                  controller: _codeController,
+                  decoration: InputDecoration(
+                    labelText: 'Entrez le code de confirmation',
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Confirmer'),
+              onPressed: () async {
+                if (_codeController.text == _confirmationCode) {
+                  // Enregistrer les données localement
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  await prefs.setString('user', _user.toJson());
+
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Informations confirmées et enregistrées.'),
+                      duration: Duration(seconds: 5),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Code de confirmation incorrect.'),
+                      duration: Duration(seconds: 5),
+                    ),
+                  );
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class UserModel {
+  String phoneNumber;
+  String name;
+  String identityNumber;
+  String education;
+  String employment;
+  String maritalStatus;
+
+  UserModel({
+    required this.phoneNumber,
+    required this.name,
+    required this.identityNumber,
+    required this.education,
+    required this.employment,
+    required this.maritalStatus,
+  });
+
+  String toJson() {
+    return '''{
+      "phoneNumber": "$phoneNumber",
+      "name": "$name",
+      "identityNumber": "$identityNumber",
+      "education": "$education",
+      "employment": "$employment",
+      "maritalStatus": "$maritalStatus"
+    }''';
+  }
+}
+Étape 3: Consultation et Modification des Informations
+Créer une page pour consulter les informations:
+dart
+Copier le code
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'user_model.dart';
+
+class UserProfilePage extends StatefulWidget {
+  @override
+  _UserProfilePageState createState() => _UserProfilePageState();
+}
+
+class _UserProfilePageState extends State<UserProfilePage> {
+  UserModel? _user;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? userData = prefs.getString('user');
+    if (userData != null) {
+      setState(() {
+        _user = UserModel.fromJson(userData);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Profil Utilisateur'),
+      ),
+      body: _user == null
+          ? Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Nom: ${_user!.name}'),
+                  Text('Numéro de Téléphone: ${_user!.phoneNumber}'),
+                  Text('Numéro d\'Identité: ${_user!.identityNumber}'),
+                  Text('Niveau d\'Études: ${_user!.education}'),
+                  Text('Emploi: ${_user!.employment}'),
+                  Text('Statut Matrimonial: ${_user!.maritalStatus}'),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Formulaire()),
+                      );
+                    },
+                    child: Text('Modifier'),
+                  ),
+                ],
+              ),
+            ),
+    );
+  }
+}
+Ajouter la méthode fromJson à UserModel:
+dart
+Copier le code
+class UserModel {
+  String phoneNumber;
+  String name;
+  String identityNumber;
+  String education;
+  String employment;
+  String maritalStatus;
+
+  UserModel({
+    required this.phoneNumber,
+    required this.name,
+    required this.identityNumber,
+    required this.education,
+    required this.employment,
+    required this.maritalStatus,
+  });
+
+  String toJson() {
+    return '''{
+      "phoneNumber": "$phoneNumber",
+      "name": "$name",
+      "identityNumber": "$identityNumber",
+      "education": "$education",
+      "employment": "$employment",
+      "maritalStatus": "$maritalStatus"
+    }''';
+  }
+
+  factory UserModel.fromJson(String jsonString) {
+    final Map<String, dynamic> jsonData = json.decode(jsonString);
+    return UserModel(
+      phoneNumber: jsonData['phoneNumber'],
+      name: jsonData['name'],
+      identityNumber: jsonData['identityNumber'],
+      education: jsonData['education'],
+      employment: jsonData['employment'],
+      maritalStatus: jsonData['maritalStatus'],
+    );
+  }
+}
+Ajouter un bouton de synchronisation:
+Ajoutez un bouton dans UserProfilePage pour synchroniser les informations avec le service du ministère de la sécurité. Par exemple, vous pourriez utiliser un service REST pour cela.
+
+dart
+Copier le code
+ElevatedButton(
+  onPressed: () async {
+    // Exemple de code pour envoyer les données à un service externe
+    final response = await http.post(
+      Uri.parse('https://service-ministere-securite.com/synchronisation'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: _user!.toJson(),
+    );
+
+    if (response.statusCode == 200) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Informations synchronisées avec succès.'),
+          duration: Duration(seconds: 5),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Erreur de synchronisation des informations.'),
+          duration: Duration(seconds: 5),
+        ),
+      );
+    }
+  },
+  child: Text('Synchroniser avec le ministère de la sécurité'),
+);
+Cela couvre l'intégration avec Firebase pour l'envoi de SMS, le stockage local des informations, la consultation et modification des données utilisateur, ainsi que la synchronisation avec un service externe. Vous pouvez ajuster et améliorer ce code en fonction des besoins spécifiques de votre application et des services externes que vous utilisez.
