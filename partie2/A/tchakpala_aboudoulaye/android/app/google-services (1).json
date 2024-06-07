@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "210718738941",
+    "project_id": "togo-ccf4f",
+    "storage_bucket": "togo-ccf4f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210718738941:android:c9cbf7b42984eccbd8b194",
+        "android_client_info": {
+          "package_name": "com.example.tchakpala_aboudoulaye"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAni3l2t5Z8JOl-AfaV7waJhvmSjgLMEgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "798223663515",
+    "project_id": "projet-flutter-2000",
+    "storage_bucket": "projet-flutter-2000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798223663515:android:fd232ff68c39bed403213e",
+        "android_client_info": {
+          "package_name": "com.example.nadjitanbetan_atossou_agbleta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWKXQuJz3N00wdjoY-cT8aIBUSnbMG_kI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
