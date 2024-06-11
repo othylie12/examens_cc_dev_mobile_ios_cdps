@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "62236933976",
+    "project_id": "identyti-8b1f3",
+    "storage_bucket": "identyti-8b1f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62236933976:android:86e8f16a409d1180906f2d",
+        "android_client_info": {
+          "package_name": "com.example.identity_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC49VR8ctTfC0z7_5szglgZE6cx3YZX_1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

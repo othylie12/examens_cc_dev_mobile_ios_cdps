@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "670851577855",
+    "project_id": "projet-ministere",
+    "storage_bucket": "projet-ministere.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670851577855:android:b558780d9e2bcb3b4c19ca",
+        "android_client_info": {
+          "package_name": "com.example.projet_ministere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrj4thDFQlgt_FeL95aPnDlYw2qSFXZPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

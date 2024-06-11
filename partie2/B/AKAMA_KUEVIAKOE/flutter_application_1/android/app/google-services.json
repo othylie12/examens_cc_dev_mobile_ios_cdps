@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "644230256533",
+    "project_id": "asynconf-af9e1",
+    "storage_bucket": "asynconf-af9e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644230256533:android:fa24cc63d44075ef30889c",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOe_DijaVv8wOezCNmyj70zm0Yj3yijZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

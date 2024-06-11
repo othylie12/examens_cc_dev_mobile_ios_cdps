@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "888864782271",
+    "project_id": "classy-b512e",
+    "storage_bucket": "classy-b512e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888864782271:android:82f874bfa6938f4852d30a",
+        "android_client_info": {
+          "package_name": "com.example.my_work"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa1tuzz2bjvy7A7Munq_4zZnjjWJmH2Yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

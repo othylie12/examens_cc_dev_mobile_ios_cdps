@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861795366182",
+    "project_id": "duoproject-322da",
+    "storage_bucket": "duoproject-322da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861795366182:android:f1901b63a6784281a53de7",
+        "android_client_info": {
+          "package_name": "com.example.duo_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDcMFQV_1qCu2dj1CDoD5phmC5JW4p8-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
